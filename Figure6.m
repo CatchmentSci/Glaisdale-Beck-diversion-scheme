@@ -29,7 +29,7 @@ websave('readtext.m', 'https://raw.githubusercontent.com/CatchmentSci/Glaisdale-
 [data_text,~] = readtext(outfilename, '	', '','','textual'); % read in the tab delimeted data
 timeStamp = data_text(15:end,1); % Create the timestamp array
 normQ = str2double(data_text(15:end,2)); % Create the normalised discharge array
-ssc = str2double(data_text(15:end,3)); % Create the normalised discharge array
+ssc = str2double(data_text(15:end,3)); % Create the normalised ssc array
 
 % Remove corrupted data from the record prior to analysis
 removeTimeStartStop = {'22/10/2007 08:15';'04/11/2007 00:30';'13/01/2008 08:30';'15/01/2008 03:00';'30/03/2008 03:00';'30/04/2008 09:00';'15/05/2008 11:30';'04/06/2008 14:00';'26/06/2008 23:30';'12/07/2008 04:30';'13/09/2008 10:00';'23/10/2008 05:00';'20/02/2009 00:00';'05/03/2009 05:30';'25/03/2009 13:00';'10/05/2009 06:30';'30/06/2009 05:00';'29/10/2007 16:00';'28/11/2007 14:45';'14/01/2008 22:00';'15/01/2008 13:00';'05/04/2008 04:00';'04/05/2008 15:30';'18/05/2008 17:00';'07/06/2008 17:00';'03/07/2008 15:30';'25/07/2008 20:00';'15/10/2008 17:00';'06/11/2008 06:30';'26/02/2009 03:30';'21/03/2009 14:00';'04/04/2009 03:00';'13/05/2009 17:00';'13/07/2009 10:30'};
