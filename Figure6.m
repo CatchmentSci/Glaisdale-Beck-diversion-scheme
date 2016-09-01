@@ -17,7 +17,7 @@ function [normQ, ssc] = Figure6(scratch)
 % Dynamics. Figure 6. (a) Suspended sediment concentrations and (b) residuals
 % over the entire monitoring period as a result of (c) the LOWESS
 % model developed between normalized discharge and suspended sediment
-% concentrations.% This script can be cited as 'Perks, M.T. (2016)
+% concentrations. This script can be cited as 'Perks, M.T. (2016)
 % Figure 5 of Reduced fine sediment flux in response to the managed diversion of
 % an upland river channel, GitHub repository,
 % https://github.com/CatchmentSci/Glaisdale-Beck-diversion-scheme/edit/master/Figure6.m'.
