@@ -18,7 +18,8 @@ function [normQ, ssc] = Figure5(scratch)
 % an upland river channel. Earth Surface Dynamics. The output is Figure 5
 % of the aforementioned paper. This script can be cited as 'Perks, M.T. (2016) 
 % Figure 5 of Reduced fine sediment flux in response to the managed diversion of
-% an upland river channel. GitHub repository'.
+% an upland river channel, GitHub repository, 
+% https://github.com/CatchmentSci/Glaisdale-Beck-diversion-scheme/edit/master/Figure5.m'.
 
 cd(scratch); % Use the pre-assigned temporary space
 outfilename = websave('rawData.txt','https://doi.pangaea.de/10.1594/PANGAEA.864198?format=textfile'); % Download data
