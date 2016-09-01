@@ -15,7 +15,8 @@ function [normQ, ssc] = Figure5(scratch)
 % https://doi.pangaea.de/10.1594/PANGAEA.864198. The contents of which are
 % used to reproduce Figure 5 within the research paper of Perks & Warburton
 % (2016) Reduced fine sediment flux in response to the managed diversion of
-% an upland river channel. Earth Surface Dynamics.
+% an upland river channel. Earth Surface Dynamics. The output is Figure 5
+% of the aforementioned paper
 
 cd(scratch); % Use the pre-assigned temporary space
 outfilename = websave('rawData.txt','https://doi.pangaea.de/10.1594/PANGAEA.864198?format=textfile'); % Download data
