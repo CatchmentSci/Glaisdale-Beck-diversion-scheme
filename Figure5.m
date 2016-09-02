@@ -11,18 +11,12 @@ function [normQ, ssc] = Figure5(scratch)
 %
 % ssc: Suspended sediment concentration data
 %
-% Description: This script is used to reproduce Figure 5 within the research 
-% paper of Perks & Warburton (2016) Reduced fine sediment flux in response 
-% to the managed diversion of an upland river channel. Earth Surface Dynamics.
-% Figure 5. Relationship between normalized discharge and suspended
-% sediment concentrations (a) before and (b) following the diversion of 
-% Glaisdale Beck. The red line represents all the available data for the time
-% period. The broken black line represents the threshold models for normalized
-% discharge within the range of greater than and less than 4.6m3 s􀀀1.
-% This script can be cited as 'Perks, M.T. (2016) 
-% Figure 5 of Reduced fine sediment flux in response to the managed diversion of
-% an upland river channel, GitHub repository, 
-% https://github.com/CatchmentSci/Glaisdale-Beck-diversion-scheme/edit/master/Figure5.m'.
+% Description: This script utilises data deposited at
+% https://doi.pangaea.de/10.1594/PANGAEA.864198. The contents of which are
+% used to reproduce Figure 5 within the research paper of Perks & Warburton
+% (2016) Reduced fine sediment flux in response to the managed diversion of
+% an upland river channel. Earth Surface Dynamics. The output is Figure 5
+% of the aforementioned paper
 
 cd(scratch); % Use the pre-assigned temporary space
 outfilename = websave('rawData.txt','https://doi.pangaea.de/10.1594/PANGAEA.864198?format=textfile'); % Download data
@@ -57,11 +51,11 @@ xvalues = xvalues./1000;
 i1 = min(preQ);
 i2 = dsearchn(xvalues',i1);
 xvalues1 = xvalues(i2:end);
-xvalues = xvalues1;
-curvefit1 = a.*xvalues.^log10b; % Produce data for regular power fit
+xvalues = log10(xvalues1);
+curvefit1 = log10b.*xvalues+log10a; % Produce data for regular power fit
 subplot(1,2,1);
 scatter(log10(preQ),log10(preSsc),'b+'); hold on
-plot(log10(xvalues),log10(curvefit1), 'color', 'r', 'linestyle','-','linewidth',2);
+plot(xvalues,curvefit1, 'color', 'r', 'linestyle','-','linewidth',2);
 
 %Prep the data for Figure 5b
 subplot(1,2,2);
@@ -107,10 +101,11 @@ i1 = min(afterQ);
 i2 = dsearchn(xvalues',i1);
 xvalues1 = xvalues(i2:end);
 xvalues = xvalues1;
-curvefit1 = a.*xvalues.^log10b; % Produce data for regular power fit
+xvalues = log10(xvalues1);
+curvefit1 = log10b.*xvalues+log10a; % Produce data for regular power fit
 subplot(1,2,2);
 scatter(log10(afterQ),log10(afterSsc),'b+'); hold on
-plot(log10(xvalues),log10(curvefit1), 'color', 'r', 'linestyle','-','linewidth',2); hold on
+plot(xvalues,curvefit1, 'color', 'r', 'linestyle','-','linewidth',2); hold on
 
 % Run for Qnorm > TV (i.e. 4.6323)
 i3 = find(afterQ>4.6323); afterQTVplus = afterQ(i3); afterSscTVplus = afterSsc(i3); % Find data above the threshold
@@ -134,9 +129,9 @@ xvalues = xvalues./1000;
 i1 = min(afterQTVplus);
 i2 = dsearchn(xvalues',i1);
 xvalues1 = xvalues(i2:end);
-xvalues = xvalues1;
-curvefit1 = a.*xvalues.^log10b; % Produce data for regular power fit
-plot(log10(xvalues),log10(curvefit1), 'color', 'k', 'linestyle','-','linewidth',2);
+xvalues = log10(xvalues1);
+curvefit1 = log10b.*xvalues+log10a; % Produce data for regular power fit
+plot(xvalues,curvefit1, 'color', 'k', 'linestyle','-','linewidth',2); hold on
 
 % Run for Qnorm < TV (i.e. 4.6323)
 i3 = find(afterQ<4.6323); afterQTVminus = afterQ(i3); afterSscTVminus = afterSsc(i3);
@@ -160,9 +155,9 @@ xvalues = xvalues./1000;
 i1 = min(afterQTVminus);
 i2 = dsearchn(xvalues',i1);
 xvalues1 = xvalues(i2:end);
-xvalues = xvalues1;
-curvefit1 = a.*xvalues.^log10b; % Produce data for regular power fit
-plot(log10(xvalues),log10(curvefit1), 'color', 'k', 'linestyle','-','linewidth',2);
+xvalues = log10(xvalues1);
+curvefit1 = log10b.*xvalues+log10a; % Produce data for regular power fit
+plot(xvalues,curvefit1, 'color', 'k', 'linestyle','-','linewidth',2); hold on
 
 % Optimize the graphs
 subplot(1,2,2);
